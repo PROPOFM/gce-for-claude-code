@@ -70,41 +70,30 @@ gh auth login
 
 ## 3. Claude Codeのインストール
 
-### 注意事項
-
-「Claude Code」という名前の公式ツールは存在しない可能性があります。以下のいずれかを指している可能性があります：
-
-1. **Cursor** - AI統合型コードエディタ
-2. **Claude Desktop** - AnthropicのClaude AIデスクトップアプリ
-3. **Claude API**を使用するカスタムツール
-
-### Cursorのインストール（推測）
-
-もしCursorをインストールする場合：
+### 方法A: スクリプトを使用（推奨）
 
 ```bash
-# Cursorの公式サイトからインストール手順を確認
-# https://cursor.sh/
-
-# 一般的なLinuxインストール手順（例）
-wget -O cursor.deb https://downloader.cursor.sh/linux/appImage/x64
-# または
-curl -fsSL https://cursor.sh/install.sh | sh
+chmod +x ~/install-claude-code.sh
+~/install-claude-code.sh
 ```
 
-### Claude Desktopのインストール
-
-AnthropicのClaude Desktopを使用する場合：
+### 方法B: 手動インストール
 
 ```bash
-# Claude Desktopは主にmacOS/Windows向け
-# Linux版があるか確認が必要
-# https://claude.ai/download
+curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-### その他のClaude関連ツール
+### インストール確認
 
-特定のツールをインストールする場合は、公式ドキュメントを参照してください。
+```bash
+# Claude Codeコマンドが利用可能か確認
+claude --version
+claude --help
+
+# もしコマンドが見つからない場合、PATHを確認
+echo $PATH
+which claude
+```
 
 ## 動作確認
 
