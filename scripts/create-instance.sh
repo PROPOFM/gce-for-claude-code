@@ -106,11 +106,10 @@ gcloud compute instances create "$INSTANCE_NAME" \
     --project="$PROJECT_ID" \
     --zone="$ZONE" \
     --machine-type="$MACHINE_TYPE" \
-    --network-interface=network-tier=PREMIUM,stack-type=IPV4_IPV6,subnet=default \
+    --network-interface=network-tier=PREMIUM,subnet=default \
     --maintenance-policy=MIGRATE \
     --provisioning-model=STANDARD \
-    --service-account="${PROJECT_ID}-compute@developer.gserviceaccount.com" \
-    --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
+    --no-service-account --no-scopes \
     --create-disk=auto-delete=yes,boot=yes,device-name="$INSTANCE_NAME",image=projects/$IMAGE_PROJECT/global/images/family/$IMAGE_FAMILY,mode=rw,size="${DISK_SIZE}GB",type=projects/$PROJECT_ID/zones/$ZONE/diskTypes/pd-standard \
     --no-shielded-secure-boot \
     --shielded-vtpm \
