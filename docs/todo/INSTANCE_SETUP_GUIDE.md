@@ -89,10 +89,36 @@ curl -fsSL https://claude.ai/install.sh | bash
 # Claude Codeコマンドが利用可能か確認
 claude --version
 claude --help
+```
 
-# もしコマンドが見つからない場合、PATHを確認
-echo $PATH
-which claude
+### PATHの問題が発生した場合
+
+もし`claude: command not found`エラーが出た場合：
+
+```bash
+# PATH修正スクリプトを実行
+chmod +x ~/fix-claude-path.sh
+~/fix-claude-path.sh
+
+# 新しいシェルセッションを開始（または）
+source ~/.bashrc
+
+# 再度確認
+claude --version
+```
+
+または手動でPATHを設定：
+
+```bash
+# インストール先を確認
+find ~ -name "claude" -type f 2>/dev/null
+
+# PATHに追加（例: ~/.local/bin/claudeが見つかった場合）
+export PATH="$PATH:$HOME/.local/bin"
+
+# 永続化する場合
+echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ## 動作確認
