@@ -1,0 +1,34 @@
+# GCP認証情報
+*.json
+!package*.json
+service-account*.json
+gcp-credentials*.json
+application_default_credentials.json
+
+# 環境変数ファイル
+.env
+.env.local
+.env.*.local
+
+# シークレット
+secrets/
+*.pem
+*.key
+*.crt
+
+# 一時ファイル
+*.tmp
+*.log
+.DS_Store
+
+# IDE設定
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ローカル設定
+local/
+config.local.*
+
