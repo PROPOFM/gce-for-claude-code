@@ -37,7 +37,9 @@ git config --global user.email "your.email@example.com"
 gh auth status
 
 # 未設定の場合、以下を実行
-~/configure-github.sh
+# リポジトリをクローンしている場合
+cd ~/gce-for-claude-code
+./scripts/vm/configure-github.sh
 # または
 gh auth login
 ```

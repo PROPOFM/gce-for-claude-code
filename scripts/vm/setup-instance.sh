@@ -30,6 +30,13 @@ sudo apt install -y \
     htop \
     unzip
 
+# プロジェクト用ディレクトリの作成
+echo ""
+echo "プロジェクト用ディレクトリを作成しています..."
+mkdir -p ~/projects
+echo 'export PROJECTS_DIR="$HOME/projects"' >> ~/.bashrc
+echo "✓ ~/projects/ ディレクトリを作成しました"
+
 # Git設定（環境変数から取得、または手動設定が必要）
 if [[ -n "$GIT_USER_NAME" && -n "$GIT_USER_EMAIL" ]]; then
     echo ""

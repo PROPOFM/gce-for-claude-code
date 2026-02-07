@@ -79,7 +79,7 @@ GCP上でClaude Codeを実行するための環境構築タスクリストです
 
 - [x] インスタンス作成用のスクリプトを作成
   - [x] `scripts/create-instance.sh` を作成（パラメータ化済み）
-  - [x] `scripts/setup-instance.sh` を作成（環境構築用）
+  - [x] `scripts/vm/setup-instance.sh` を作成（環境構築用、VM内で実行）
 - [x] 設定ファイルの管理
   - [x] `.gitignore` を作成（認証情報を除外）
   - [x] 環境変数やシークレットの管理方法を文書化（READMEに記載）

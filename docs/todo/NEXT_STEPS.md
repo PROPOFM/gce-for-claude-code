@@ -6,7 +6,7 @@
 
 ✅ **スクリプトと設定ファイルの作成**
 - `scripts/create-instance.sh` - インスタンス作成スクリプト
-- `scripts/setup-instance.sh` - 環境構築スクリプト
+- `scripts/vm/setup-instance.sh` - 環境構築スクリプト（VM内で実行）
 - `.gitignore` - Git除外設定
 - `README.md` - プロジェクト説明
 
@@ -76,8 +76,10 @@ gcloud compute ssh INSTANCE_NAME --zone=ZONE --project=YOUR_PROJECT_ID
 
 # 接続後、環境構築スクリプトを実行
 # まず、スクリプトをインスタンスに転送するか、直接作成
-chmod +x setup-instance.sh
-./setup-instance.sh
+# リポジトリをクローンしている場合
+cd ~/gce-for-claude-code
+chmod +x scripts/vm/setup-instance.sh
+./scripts/vm/setup-instance.sh
 ```
 
 ## 環境変数の設定
