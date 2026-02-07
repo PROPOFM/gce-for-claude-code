@@ -109,11 +109,15 @@ FUNCTION_URL=$(gcloud functions describe "$FUNCTION_NAME" \
     --gen2 \
     --region="$REGION" \
     --project="$PROJECT_ID" \
-    --format="get(serviceConfig.uri)" 2>/dev/null || \
-    gcloud functions describe "$FUNCTION_NAME" \
-    --region="$REGION" \
-    --project="$PROJECT_ID" \
-    --format="get(httpsTrigger.url)" 2>/dev/null || echo "")
+    --format="get(serviceConfig.uri)" 2>/dev/null || echo "")
+
+# Gen2で見つからない場合、Gen1を試す
+if [[ -z "$FUNCTION_URL" ]]; then
+    FUNCTION_URL=$(gcloud functions describe "$FUNCTION_NAME" \
+        --region="$REGION" \
+        --project="$PROJECT_ID" \
+        --format="get(httpsTrigger.url)" 2>/dev/null || echo "")
+fi
 
 if [[ -z "$FUNCTION_URL" ]]; then
     echo ""

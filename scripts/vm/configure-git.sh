@@ -1,12 +1,15 @@
 #!/bin/bash
 # Git設定スクリプト
 # インスタンス内で実行してください
+# 注意: VM内では PROPOFMDEV をユーザー名として使用します
 
 set -e
 
 echo "=========================================="
 echo "Git設定"
 echo "=========================================="
+echo ""
+echo "注意: VM内では 'PROPOFMDEV' をユーザー名として使用します"
 echo ""
 
 # 現在の設定を確認
@@ -15,7 +18,9 @@ git config --global --list 2>/dev/null | grep -E "(user.name|user.email)" || ech
 echo ""
 
 # ユーザー名とメールアドレスの設定
-read -p "Gitユーザー名を入力してください: " GIT_USER_NAME
+read -p "Gitユーザー名を入力してください [デフォルト: PROPOFMDEV]: " GIT_USER_NAME
+GIT_USER_NAME=${GIT_USER_NAME:-PROPOFMDEV}
+
 read -p "Gitメールアドレスを入力してください: " GIT_USER_EMAIL
 
 if [[ -n "$GIT_USER_NAME" && -n "$GIT_USER_EMAIL" ]]; then

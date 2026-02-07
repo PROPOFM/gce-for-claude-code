@@ -89,6 +89,9 @@ echo ""
 echo "必要なAPIを有効化しています..."
 gcloud services enable cloudfunctions.googleapis.com --project="$PROJECT_ID" || true
 gcloud services enable cloudbuild.googleapis.com --project="$PROJECT_ID" || true
+gcloud services enable run.googleapis.com --project="$PROJECT_ID" || true
+gcloud services enable artifactregistry.googleapis.com --project="$PROJECT_ID" || true
+echo "APIの有効化が完了しました。数分待ってからデプロイを再試行してください。"
 
 # スクリプトのディレクトリを取得
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

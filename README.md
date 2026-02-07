@@ -17,6 +17,15 @@ Google Cloud Platform (GCP) の Compute Engine 上で Claude Code を実行す�
 - `gcloud` CLIがインストールされていること
 - GitHubアカウント（環境管理用リポジトリ用）
 
+## Gitユーザー名の使い分け
+
+このプロジェクトでは、環境ごとに異なるGitユーザー名を使用します：
+
+- **Cursor（ローカルマシン）：** `soshizaki`
+- **VM内：** `PROPOFMDEV`
+
+これにより、コミット履歴から作業環境を識別できます。
+
 ## クイックスタート
 
 ### スクリプトの実行場所について
@@ -108,6 +117,7 @@ chmod +x ~/scripts/setup-instance.sh
 
 - [環境構築ガイド](docs/consideration/initial.md)
 - [環境準備TODO](docs/todo/environment-setup.md)
+- [Claude Code利用ガイド](docs/consideration/CLAUDE_CODE_USAGE_GUIDE.md) - **VM内でのClaude Code使用方法**
 
 ## VM内でのディレクトリ構造
 
