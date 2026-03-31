@@ -60,8 +60,39 @@ echo "=========================================="
 echo "注意: Claude Codeのインストール手順は公式ドキュメントを参照してください"
 echo ""
 
+# Google Cloud SDK (gcloud) のインストール
+echo ""
+echo "=========================================="
+echo "Google Cloud SDK のインストール"
+echo "=========================================="
+if ! command -v gcloud &> /dev/null; then
+    echo "Google Cloud SDK をインストールしています..."
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+    sudo apt update
+    sudo apt install -y google-cloud-cli
+    echo "✓ Google Cloud SDK をインストールしました"
+else
+    echo "✓ Google Cloud SDK は既にインストールされています"
+fi
+
+# gcloud の初期設定（プロジェクト設定のみ、認証は手動で行う）
+if command -v gcloud &> /dev/null; then
+    echo ""
+    echo "Google Cloud SDK の初期設定を行っています..."
+    gcloud config set project gce-for-claude-code || true
+    gcloud config set compute/region asia-northeast2 || true
+    gcloud config set compute/zone asia-northeast2-a || true
+    echo "✓ デフォルトプロジェクトとリージョンを設定しました"
+    echo ""
+    echo "注意: gcloud の認証は手動で行ってください:"
+    echo "  gcloud auth login --no-launch-browser"
+    echo "  gcloud auth application-default login --no-launch-browser  # SDK から API を呼ぶ場合"
+fi
+
 # GitHub認証の設定（Personal Access Tokenが必要）
 if [[ -n "$GITHUB_TOKEN" ]]; then
+    echo ""
     echo "GitHub認証を設定しています..."
     # GitHub CLIのインストール（オプション）
     if ! command -v gh &> /dev/null; then
@@ -88,6 +119,7 @@ echo ""
 echo "次のステップ:"
 echo "1. Claude Codeをインストール（公式手順に従って）"
 echo "2. GitHub認証を設定（Personal Access Tokenを使用）"
-echo "3. 動作確認"
+echo "3. gcloud の認証（VM 上で gcloud を使う場合）: gcloud auth login --no-launch-browser"
+echo "4. 動作確認"
 echo ""
 

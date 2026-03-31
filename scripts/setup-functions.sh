@@ -7,7 +7,7 @@ set -e
 # デフォルト値
 PROJECT_ID="${GCP_PROJECT_ID:-gce-for-claude-code}"
 INSTANCE_NAME="${INSTANCE_NAME:-claude-code-vm}"
-ZONE="${ZONE:-asia-northeast1-a}"
+ZONE="${ZONE:-asia-northeast2-a}"
 REGION="${REGION:-asia-northeast1}"
 FUNCTION_NAME="stop-instance"
 
@@ -21,7 +21,7 @@ usage() {
 オプション:
     -p, --project-id PROJECT_ID      GCPプロジェクトID（デフォルト: gce-for-claude-code）
     -n, --instance-name NAME         インスタンス名（デフォルト: claude-code-vm）
-    -z, --zone ZONE                  ゾーン（デフォルト: asia-northeast1-a）
+    -z, --zone ZONE                  ゾーン（デフォルト: asia-northeast2-a）
     -r, --region REGION              リージョン（デフォルト: asia-northeast1）
     -h, --help                        このヘルプを表示
 

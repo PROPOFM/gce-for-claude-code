@@ -225,7 +225,7 @@ claude "次のタスクを実装してください"
    # ローカルマシン（Cursor）で実行
    ./scripts/vm-control.sh ssh
    # または
-   gcloud compute ssh claude-code-vm --zone=asia-northeast1-a --project=gce-for-claude-code
+   gcloud compute ssh claude-code-vm --zone=asia-northeast2-a --project=gce-for-claude-code
    ```
 
 2. **VM内でtmuxセッションを開始**
@@ -340,7 +340,7 @@ wait $JOB2
 1. **ローカルマシンでターミナル1を開く**
    ```bash
    # ローカルマシン（Cursor）で実行
-   gcloud compute ssh claude-code-vm --zone=asia-northeast1-a --project=gce-for-claude-code
+   gcloud compute ssh claude-code-vm --zone=asia-northeast2-a --project=gce-for-claude-code
    
    # VM内で実行
    cd ~/projects/project1
@@ -350,7 +350,7 @@ wait $JOB2
 2. **ローカルマシンでターミナル2を開く（新しいターミナルウィンドウ）**
    ```bash
    # ローカルマシン（Cursor）で実行（新しいターミナルウィンドウ）
-   gcloud compute ssh claude-code-vm --zone=asia-northeast1-a --project=gce-for-claude-code
+   gcloud compute ssh claude-code-vm --zone=asia-northeast2-a --project=gce-for-claude-code
    
    # VM内で実行
    cd ~/projects/project2

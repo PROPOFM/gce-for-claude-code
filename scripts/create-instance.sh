@@ -8,7 +8,7 @@ set -e
 PROJECT_ID="${GCP_PROJECT_ID:-}"
 INSTANCE_NAME="${INSTANCE_NAME:-claude-code-vm}"
 MACHINE_TYPE="${MACHINE_TYPE:-e2-standard-2}"
-ZONE="${ZONE:-asia-northeast1-a}"
+ZONE="${ZONE:-asia-northeast2-a}"
 DISK_SIZE="${DISK_SIZE:-50}"
 IMAGE_FAMILY="${IMAGE_FAMILY:-ubuntu-2204-lts}"
 IMAGE_PROJECT="${IMAGE_PROJECT:-ubuntu-os-cloud}"
@@ -22,7 +22,7 @@ usage() {
     -p, --project-id PROJECT_ID      GCPプロジェクトID（必須）
     -n, --instance-name NAME         インスタンス名（デフォルト: claude-code-vm）
     -m, --machine-type TYPE          マシンタイプ（デフォルト: e2-standard-2）
-    -z, --zone ZONE                  ゾーン（デフォルト: asia-northeast1-a）
+    -z, --zone ZONE                  ゾーン（デフォルト: asia-northeast2-a）
     -d, --disk-size SIZE             ディスクサイズ（GB、デフォルト: 50）
     -h, --help                        このヘルプを表示
 

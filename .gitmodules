@@ -1,0 +1,3 @@
+[submodule "project-workflow-template"]
+	path = project-workflow-template
+	url = https://github.com/PROPOFM/project-workflow-template.git

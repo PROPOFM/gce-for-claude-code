@@ -8,7 +8,7 @@ from google.auth import default
 
 # 環境変数から設定を取得
 INSTANCE_NAME = os.environ.get('INSTANCE_NAME', 'claude-code-vm')
-ZONE = os.environ.get('ZONE', 'asia-northeast1-a')
+ZONE = os.environ.get('ZONE', 'asia-northeast2-a')
 PROJECT_ID = os.environ.get('PROJECT_ID', '')
 
 
